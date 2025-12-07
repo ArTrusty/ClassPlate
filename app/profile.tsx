@@ -56,7 +56,7 @@ export default function Profile() {
         <Text>Favorite Quote: {user?.quote}</Text>
         <Text>Dietary Restrictions: {user?.dietaryRestrictions}</Text>
         <Text>Fun Fact: {user?.funfact}</Text>
-        <Text>Would rather: {user?.ratherfun}</Text>
+        <Text>Would rather: {user?.preferredActivity}</Text>
         <Text>Spotify: {user?.spotify}</Text>
       </View>
 

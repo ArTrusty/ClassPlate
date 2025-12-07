@@ -20,11 +20,11 @@ export default function Survey() {
   
   const[dietaryRestrictions, setDietaryRestrictions] = useState("");
   const[funfact, setFunfact] = useState("");
-  const[ratherfun, setRatherfun] = useState("");
+  const[preferredActivity, setPreferredActivity] = useState("");
   const[spotify, setSpotify] = useState("");
   //  submit 
 const handleSubmit = async () => {
-  if (!major || !year || !cafeOrder || !dietaryRestrictions || !funfact || !ratherfun || !spotify || !lunchVibe) {
+  if (!major || !year || !cafeOrder || !dietaryRestrictions || !funfact || !preferredActivity || !spotify || !lunchVibe) {
     alert("Please fill out all required fields.");
     return;
   }
@@ -44,7 +44,7 @@ const handleSubmit = async () => {
     cafeOrder,
     dietaryRestrictions,
     funfact,
-    ratherfun,
+    preferredActivity,
     spotify,
     updatedAt: Date.now()
   }, { merge: true });
@@ -56,7 +56,7 @@ const handleSubmit = async () => {
     cafeOrder,
     dietaryRestrictions,
     funfact,
-    ratherfun,
+    preferredActivity,
     spotify,
     lunchVibe,
     
@@ -170,9 +170,9 @@ const handleSubmit = async () => {
 
       <Text style={styles.label}>I would have more fun with</Text>
       <Picker
-        selectedValue={ratherfun}
+        selectedValue={preferredActivity}
         style={styles.input}
-        onValueChange={(item) => setRatherfun(item)}
+        onValueChange={(item) => setPreferredActivity(item)}
         >
           <Picker.Item label="shopping" value="Shopping" />
           <Picker.Item label="baking" value="Baking" />
