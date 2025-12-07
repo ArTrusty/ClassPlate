@@ -102,8 +102,6 @@ export default function Index() {
       <Text style={styles.title}>ClassPlate</Text>
       <Text style={styles.subtitle}>Community, it's what's with lunch</Text>
 
-      
-
       {/* google Login */}
       <TouchableOpacity style={styles.button} onPress={() => promptAsync()} disabled={!request}>
         <Text style={styles.buttonText}>Sign in with Google</Text>

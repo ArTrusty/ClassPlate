@@ -133,7 +133,6 @@ export default function Home() {
             <View key={d.id} style={styles.suggestCard}>
               <Text style={styles.suggestName}>Duos found</Text>
               <Text style={styles.suggestSub}>{d.users.join(" & ")}</Text>
-
               <TouchableOpacity onPress={() => router.push(`/chatRoom?duo=${d.id}`)}>
                 <Text style={styles.profileLink}>Open Chat →</Text>
               </TouchableOpacity>

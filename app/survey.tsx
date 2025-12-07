@@ -10,18 +10,16 @@ import { db } from "./firebaseConfig"; // .. for when inside app folder
 export default function Survey() {
   const router = useRouter();
 
-  
   const [major, setMajor] = useState("");
   const [year, setYear] = useState("");
   const [lunchVibe, setLunchVibe] = useState("");
   const [socialLevel, setSocialLevel] = useState(3);
   const [cafeOrder, setCafeOrder] = useState("");
-  
-  
   const[dietaryRestrictions, setDietaryRestrictions] = useState("");
   const[funfact, setFunfact] = useState("");
   const[preferredActivity, setPreferredActivity] = useState("");
   const[spotify, setSpotify] = useState("");
+
   //  submit 
 const handleSubmit = async () => {
   if (!major || !year || !cafeOrder || !dietaryRestrictions || !funfact || !preferredActivity || !spotify || !lunchVibe) {
@@ -66,14 +64,10 @@ const handleSubmit = async () => {
   router.replace("/home");
 };
 
-
-
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>ClassPlate Survey</Text>
       
-
       {/* major */}
       <Text style={styles.label}>Major</Text>
       <TextInput 
@@ -111,9 +105,6 @@ const handleSubmit = async () => {
         <Picker.Item label="chill/go with the flow" value="casual chat" />
 
       </Picker>
-      
-
-
 
       {/* slider */}
       <Text style={styles.label}>on a scale from (1)introvert to (5)extrovert, where are you?</Text>
@@ -126,6 +117,7 @@ const handleSubmit = async () => {
         onValueChange={setSocialLevel}
       />
       <Text>Level: {socialLevel}/5</Text>
+
       {/* cafe order */}
       <Text style={styles.label}>Leo/Pride order</Text>
       <TextInput 
@@ -134,6 +126,7 @@ const handleSubmit = async () => {
         value={cafeOrder}
         onChangeText={setCafeOrder}
       />
+
       {/* quote took out quote but saved for later
       <Text style={styles.label}>Favorite Quote</Text>
       <TextInput
@@ -142,9 +135,6 @@ const handleSubmit = async () => {
         value={quote}
         onChangeText={setQuote}
       />
-      
-      
-      
       */}
       
       {/* dietary restrictions */}
@@ -159,6 +149,7 @@ const handleSubmit = async () => {
           <Picker.Item label="meat eater" value="Meat Eater" />
           <Picker.Item label="pescatarian" value="Pescatarian" />
         </Picker>
+
       {/* Fun fact */}
       <Text style={styles.label}>Fun Fact</Text>
       <TextInput 
@@ -167,7 +158,7 @@ const handleSubmit = async () => {
         value={funfact}
         onChangeText={setFunfact}
       />
-
+      {/* preferred activity */}
       <Text style={styles.label}>I would have more fun with</Text>
       <Picker
         selectedValue={preferredActivity}
@@ -179,6 +170,7 @@ const handleSubmit = async () => {
           <Picker.Item label="traveling" value="Traveling" />
           <Picker.Item label="quiet reading alongside a friend" value="Reading" />
         </Picker>
+      {/* spotify */}
       <Text style={styles.label}>Spotify Playlist Link</Text>
       <TextInput 
         style={styles.input}
