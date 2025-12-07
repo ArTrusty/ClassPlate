@@ -7,7 +7,7 @@ export async function getMatches(currentUser: any) {
 
   users.forEach(docSnap => {
     const u = docSnap.data();
-
+    // match scoring
     if (u.email !== currentUser.email) {       // exclude self
       let score = 0;
 

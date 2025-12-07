@@ -15,7 +15,7 @@ export default function Duos() {
     async function loadDuos() {
       const uid = await AsyncStorage.getItem("userId");
       if (!uid) return router.replace("/");
-
+      // get duos that include current user
       const q = query(collection(db, "duos"), where("users", "array-contains", uid));
       const snap = await getDocs(q);
 

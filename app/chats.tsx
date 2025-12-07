@@ -8,12 +8,12 @@ import { db } from "./firebaseConfig";
 export default function Chats() {
   const router = useRouter();
   const [duos, setDuos] = useState<any[]>([]);
-
+  // load chats
   useEffect(() => {
     async function loadChats() {
       const userId = await AsyncStorage.getItem("userId");
       if (!userId) return;
-
+      // if user exists, get duos where current user is apart of duo
       const q = query(collection(db,"duos"), where("users", "array-contains", userId));
       const snap = await getDocs(q);
 
@@ -28,11 +28,11 @@ export default function Chats() {
   return (
     <View style={styles.container}>
       <Text style={styles.header}>Chats</Text>
-
+      {/* chat list */}
       {duos.length === 0 &&
         <Text>No chats yet.</Text>
       }
-
+      {/* chat list */}
       <FlatList
         data={duos}
         keyExtractor={item=>item.id}

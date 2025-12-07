@@ -8,20 +8,21 @@ import { db } from "./firebaseConfig";
 export default function ChatRoom() {
   const { duo } = useLocalSearchParams(); // duo chat id
   const [text, setText] = useState("");
+  // message organization
   interface Message {
   id: string;
   senderId: string;
   text: string;
   timestamp: number;
 }
-
+// store messages
 const [messages, setMessages] = useState<Message[]>([]);
 
 
   useEffect(()=>{
+    // live updates and order by timestamp
     const ref = collection(db,"messages", String(duo),"chat");
     const q = query(ref, orderBy("timestamp","asc"));
-
     const unsub = onSnapshot(q, snapshot=>{
       const list:any=[];
       snapshot.forEach(d => list.push({id:d.id, ...d.data()}));
@@ -29,7 +30,7 @@ const [messages, setMessages] = useState<Message[]>([]);
     });
     return ()=>unsub();
   },[]);
-
+  // send message to firestore
   async function sendMessage(){
     if(!text.trim()) return;
     const userId = await AsyncStorage.getItem("userId");
@@ -45,7 +46,7 @@ const [messages, setMessages] = useState<Message[]>([]);
 
   return (
     <View style={styles.container}>
-      
+      {/* message list */}
       <FlatList
         data={messages}
         keyExtractor={i=>i.id}
@@ -56,6 +57,7 @@ const [messages, setMessages] = useState<Message[]>([]);
         )}
       />
 
+      {/* message input */}
       <View style={styles.row}>
         <TextInput 
           style={styles.input}
