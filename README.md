@@ -56,16 +56,16 @@ I built this software using VScode, Git,Github, Firebase, React Native, and Goog
    4. You also can not log in unless you are added as a test user on Google Cloud Console
 ## Screenshots
    ### Home Page
-   <img src="assets/screenshots/home page.png" width="300">
+   <img src="assets/images/screenshots/chat page.png" width="300">
 
 ### Duo Page
-   <img src="assets/screenshots/duo page.png" width="300">
+   <img src="assets/images/screenshots/duo page.png" width="300">
 
 ### Chat Page
-<img src="assets/screenshots/chat page.png" width="300">
+<img src="assets/images/screenshots/chat page.png" width="300">
 
 ### Chatroom
-<img src="assets/screenshots/chatroom.png" width="300">
+<img src="assets/images/screenshots/chatroom.png" width="300">
 
 
 ## Known Issues/limitations
