@@ -52,7 +52,12 @@ export default function Profile() {
 
       <View style={styles.card}>
         <Text>Lunch Preference: {user?.preference}</Text>
-        <Text>Social Level: {user?.socialLevel}/5</Text>
+        <Text>Cafe Order: {user?.cafeOrder}</Text>
+        <Text>Favorite Quote: {user?.quote}</Text>
+        <Text>Dietary Restrictions: {user?.dietaryRestrictions}</Text>
+        <Text>Fun Fact: {user?.funfact}</Text>
+        <Text>Would rather: {user?.ratherfun}</Text>
+        <Text>Spotify: {user?.spotify}</Text>
       </View>
 
       <TouchableOpacity style={styles.button} onPress={()=>router.push("/survey")}>

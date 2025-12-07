@@ -15,10 +15,16 @@ export default function Survey() {
   const [year, setYear] = useState("");
   const [preference, setPreference] = useState("");
   const [socialLevel, setSocialLevel] = useState(3);
-
+  const [cafeOrder, setCafeOrder] = useState("");
+  const [quote, setQuote] = useState("");
+ 
+  const[dietaryRestrictions, setDietaryRestrictions] = useState("");
+  const[funfact, setFunfact] = useState("");
+  const[ratherfun, setRatherfun] = useState("");
+  const[spotify, setSpotify] = useState("");
   //  submit 
 const handleSubmit = async () => {
-  if (!major || !year || !preference) {
+  if (!major || !year || !preference || !cafeOrder || !quote || !dietaryRestrictions || !funfact || !ratherfun || !spotify) {
     alert("Please fill out all required fields.");
     return;
   }
@@ -35,6 +41,12 @@ const handleSubmit = async () => {
     year,
     preference,
     socialLevel,
+    cafeOrder,
+    quote,
+    dietaryRestrictions,
+    funfact,
+    ratherfun,
+    spotify,
     updatedAt: Date.now()
   }, { merge: true });
 
@@ -43,7 +55,13 @@ const handleSubmit = async () => {
     major,
     year,
     preference,
-    socialLevel,
+    cafeOrder,
+    quote,
+    dietaryRestrictions,
+    funfact,
+    ratherfun,
+    spotify,
+    
   }, { merge: true });
 
   alert("Survey submitted and profile updated. ");
@@ -89,12 +107,14 @@ const handleSubmit = async () => {
         style={styles.picker}
         onValueChange={(item) => setPreference(item)}
       >
-        <Picker.Item label="deep conversations" value="deep" />
-        <Picker.Item label="study lunch " value="friends" />
+        <Picker.Item label="deep conversations" value="deep conversations" />
+        <Picker.Item label="study lunch " value="study lunch" />
         <Picker.Item label="Networking and career chat" value="networking" />
-        <Picker.Item label="chill/go with the flow" value="chill" />
+        <Picker.Item label="chill/go with the flow" value="casual chat" />
 
       </Picker>
+
+
 
       {/* slider */}
       <Text style={styles.label}>on a scale from (1)introvert to (5)extrovert, where are you?</Text>
@@ -107,6 +127,61 @@ const handleSubmit = async () => {
         onValueChange={setSocialLevel}
       />
       <Text>Level: {socialLevel}/5</Text>
+      {/* cafe order */}
+      <Text style={styles.label}>Leo/Pride order</Text>
+      <TextInput 
+        style={styles.input}
+        placeholder="black coffee"
+        value={cafeOrder}
+        onChangeText={setCafeOrder}
+      />
+      {/* quote */}
+      <Text style={styles.label}>Favorite Quote</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="To be or not to be..."
+        value={quote}
+        onChangeText={setQuote}
+      />
+      {/* dietary restrictions */}
+      <Text style={styles.label}>Dietary Restrictions</Text>
+      <Picker
+        selectedValue={dietaryRestrictions}
+        style={styles.input}
+        onValueChange={(item) => setDietaryRestrictions(item)}
+        >
+          <Picker.Item label="Vegan" value="Vegan" />
+          <Picker.Item label="vegetarian" value="Vegetarian" />
+          <Picker.Item label="meat eater" value="Meat Eater" />
+          <Picker.Item label="pescatarian" value="Pescatarian" />
+        </Picker>
+      {/* Fun fact */}
+      <Text style={styles.label}>Major</Text>
+      <TextInput 
+        style={styles.input}
+        placeholder="i have three cats"
+        value={funfact}
+        onChangeText={setFunfact}
+      />
+
+      <Text style={styles.label}>I would have more fun with</Text>
+      <Picker
+        selectedValue={ratherfun}
+        style={styles.input}
+        onValueChange={(item) => setRatherfun(item)}
+        >
+          <Picker.Item label="shopping" value="Shopping" />
+          <Picker.Item label="baking" value="Baking" />
+          <Picker.Item label="traveling" value="Traveling" />
+          <Picker.Item label="quiet reading alongside a friend" value="Reading" />
+        </Picker>
+      <Text style={styles.label}>Spotify Playlist Link</Text>
+      <TextInput 
+        style={styles.input}
+        placeholder="https://open.spotify.com/playlist..."
+        value={spotify}
+        onChangeText={setSpotify}
+      />
 
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
         <Text style={styles.buttonText}>Submit Survey</Text>

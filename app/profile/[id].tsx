@@ -12,6 +12,13 @@ interface UserProfile {
   preference?: string;
   socialLevel?: number;
   picture?: string;
+  cafeOrder?: string;
+  quote?: string;
+  dietaryRestrictions?: string;
+  funfact?: string;
+  ratherfun?: string;
+  spotify?: string;
+  similarity?: string;
 }
 
 export default function OtherProfile() {
@@ -43,7 +50,12 @@ export default function OtherProfile() {
       <Text style={styles.name}>{user.name}</Text>
       <Text style={styles.sub}>{user.major} | {user.year}</Text>
       <Text style={styles.bio}>Prefers: {user.preference}</Text>
-      <Text style={styles.bio}>Social level: {user.socialLevel}/5</Text>
+      <Text style={styles.bio}>Cafe Order: {user.cafeOrder}</Text>
+      <Text style={styles.bio}>Social Level: {user.socialLevel}/5</Text>
+      <Text style={styles.bio}>Fun Fact: {user.funfact}</Text>
+      <Text style={styles.bio}>Would rather: {user.ratherfun}</Text>
+      <Text style={styles.bio}>Spotify: {user.spotify}</Text>
+      <Text style={styles.bio}>Similarity: {user.similarity}</Text>
 
       
     </View>
