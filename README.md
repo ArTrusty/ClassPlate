@@ -1,11 +1,38 @@
-<<<<<<< HEAD
-# Welcome to your Expo app 👋
+
+# Welcome to ClassPlate
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-## Get started
+# Project description
 
-1. Install dependencies
+
+
+## Features Implemented
+   Chat
+   Survey
+   Profile Editing via Survey
+   Duo Matching
+   Requesting Duos
+   Viewing Other User's Profiles
+   Sending Duo Requests
+   Home Page
+   Profile Page
+   Profile Photo Display
+
+## Technology Stack
+   React Native
+   Node.js
+   Visual Studio Code
+   GitHub Copilot
+   Firebase
+   Google Cloud
+   Expo
+   TypeScript
+   Git
+
+## Installation/setup instructions
+1. Clone Repo
+2. Install dependencies
 
    ```bash
    npm install
@@ -16,40 +43,27 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    ```bash
    npx expo start
    ```
+## How to run the application
+   1. ```bash
+         npx expo start
+      ```
+   2. Log onto the local host url from terminal OR download Expo Go on an android phone
+   note: Expo Go will only work if your phone and computer are connected via the same wifi. You can do npx expo start --tunnel if you cannot put both devices on the same wifi. Please note that this generates a new url everytime. Google login will no longer work for two reasons: 1. The url that is generated is not listed as an authorized redirect urI on Google Cloud and 2. Google Cloud does not accept urls that do not start with https.
 
-In the output, you'll find options to open the app in a
+   3. If you log onto the local host url with your laptop, right click on the website and press inspect. Press toggle device emulation at the top to visualize what the app looks like on a phone. 
+## Screenshots
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Known Issues/limitations
+   1. The app is not deployed which means it can only run on a local machine
+   2. An ios web client was not created so this app will not run on an ios phone
+   
 
-## Get a fresh project
+## Credits and Acknowledgments
 
-When you're ready, run:
 
-```bash
-npm run reset-project
-```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-## Learn more
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
 =======
-# ClassPlate
-my project!
->>>>>>> fc32b40897f918b40e89b678d090d44e6bd650e1
+
