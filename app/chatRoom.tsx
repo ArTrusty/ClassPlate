@@ -8,20 +8,21 @@ import { db } from "./firebaseConfig";
 export default function ChatRoom() {
   const { duo } = useLocalSearchParams(); // duo chat id
   const [text, setText] = useState("");
+  // message structure
   interface Message {
   id: string;
   senderId: string;
   text: string;
   timestamp: number;
 }
-
+// store messages
 const [messages, setMessages] = useState<Message[]>([]);
 
 
   useEffect(()=>{
-    const ref = collection(db,"messages", String(duo),"chat");
-    const q = query(ref, orderBy("timestamp","asc"));
-
+    const ref = collection(db,"messages", String(duo),"chat"); // messages collection
+    const q = query(ref, orderBy("timestamp","asc")); // order by time
+    // live chat updates
     const unsub = onSnapshot(q, snapshot=>{
       const list:any=[];
       snapshot.forEach(d => list.push({id:d.id, ...d.data()}));

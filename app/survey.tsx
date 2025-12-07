@@ -9,22 +9,18 @@ import { db } from "./firebaseConfig"; // .. for when inside app folder
 
 export default function Survey() {
   const router = useRouter();
-
-  
   const [major, setMajor] = useState("");
   const [year, setYear] = useState("");
-  const [lunchvibe, setLunchvibe] = useState("");
+  const [lunchVibe, setLunchVibe] = useState("");
   const [socialLevel, setSocialLevel] = useState(3);
   const [cafeOrder, setCafeOrder] = useState("");
-  
-  
   const[dietaryRestrictions, setDietaryRestrictions] = useState("");
   const[funfact, setFunfact] = useState("");
-  const[ratherfun, setRatherfun] = useState("");
+  const[preferredActivity, setPreferredActivity] = useState("");
   const[spotify, setSpotify] = useState("");
   //  submit 
 const handleSubmit = async () => {
-  if (!major || !year || !lunchvibe || !cafeOrder || !quote || !dietaryRestrictions || !funfact || !ratherfun || !spotify) {
+  if (!major || !year || !lunchVibe || !cafeOrder || !dietaryRestrictions || !funfact || !preferredActivity || !spotify) {
     alert("Please fill out all required fields.");
     return;
   }
@@ -39,12 +35,12 @@ const handleSubmit = async () => {
   await setDoc(doc(db, "surveyResponses", userId), {
     major,
     year,
-    lunchvibe,
+    lunchVibe,
     socialLevel,
     cafeOrder,
     dietaryRestrictions,
     funfact,
-    ratherfun,
+    preferredActivity,
     spotify,
     updatedAt: Date.now()
   }, { merge: true });
@@ -53,13 +49,12 @@ const handleSubmit = async () => {
   await setDoc(doc(db, "users", userId), {
     major,
     year,
-    lunchvibe,
+    lunchVibe,
     cafeOrder,
     dietaryRestrictions,
     funfact,
-    ratherfun,
+    preferredActivity,
     spotify,
-    lunchVibe,
     
   }, { merge: true });
 
@@ -67,14 +62,10 @@ const handleSubmit = async () => {
   router.replace("/home");
 };
 
-
-
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>ClassPlate Survey</Text>
       
-
       {/* major */}
       <Text style={styles.label}>Major</Text>
       <TextInput 
@@ -102,9 +93,9 @@ const handleSubmit = async () => {
       {/* lunch type */}
       <Text style={styles.label}> I prefer... </Text>
       <Picker
-        selectedValue={lunchvibe}
+        selectedValue={lunchVibe}
         style={styles.picker}
-        onValueChange={(item) => setLunchvibe(item)}
+        onValueChange={(item) => setLunchVibe(item)}
       >
         <Picker.Item label="Deep conversations" value="deep conversations" />
         <Picker.Item label="Study lunch " value="study lunch" />
@@ -112,10 +103,7 @@ const handleSubmit = async () => {
         <Picker.Item label="Chill/go with the flow" value="casual chat" />
 
       </Picker>
-      
-
-
-
+    
       {/* slider */}
       <Text style={styles.label}>on a scale from (1)introvert to (5)extrovert, where are you?</Text>
       <Slider
@@ -127,6 +115,7 @@ const handleSubmit = async () => {
         onValueChange={setSocialLevel}
       />
       <Text>Level: {socialLevel}/5</Text>
+
       {/* cafe order */}
       <Text style={styles.label}>Leo/Pride order</Text>
       <TextInput 
@@ -143,9 +132,6 @@ const handleSubmit = async () => {
         value={quote}
         onChangeText={setQuote}
       />
-      
-      
-      
       */}
       
       {/* dietary restrictions */}
@@ -168,12 +154,12 @@ const handleSubmit = async () => {
         value={funfact}
         onChangeText={setFunfact}
       />
-
+      {/* preferred activity */}
       <Text style={styles.label}>I would have more fun with</Text>
       <Picker
-        selectedValue={ratherfun}
+        selectedValue={preferredActivity}
         style={styles.input}
-        onValueChange={(item) => setRatherfun(item)}
+        onValueChange={(item) => setPreferredActivity(item)}
         >
           <Picker.Item label="Shopping" value="Shopping" />
           <Picker.Item label="Baking" value="Baking" />
@@ -194,7 +180,6 @@ const handleSubmit = async () => {
     </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   container:{ flex:1, backgroundColor:"#faf7ee", padding:25 },

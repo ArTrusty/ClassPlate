@@ -51,12 +51,11 @@ export default function Profile() {
       </View>
 
       <View style={styles.card}>
-        <Text>Lunch Preference: {user?.preference}</Text>
+        <Text>Lunch Preference: {user?.lunchVibe}</Text>
         <Text>Cafe Order: {user?.cafeOrder}</Text>
-        <Text>Favorite Quote: {user?.quote}</Text>
         <Text>Dietary Restrictions: {user?.dietaryRestrictions}</Text>
         <Text>Fun Fact: {user?.funfact}</Text>
-        <Text>Would rather: {user?.ratherfun}</Text>
+        <Text>Would rather: {user?.preferredActivity}</Text>
         <Text>Spotify: {user?.spotify}</Text>
       </View>
 

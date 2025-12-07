@@ -7,20 +7,21 @@ import { db } from "./firebaseConfig";
 
 export default function Chats() {
   const router = useRouter();
-  const [duos, setDuos] = useState<any[]>([]);
+  const [duos, setDuos] = useState<any[]>([]); // store duos
 
   useEffect(() => {
     async function loadChats() {
       const userId = await AsyncStorage.getItem("userId");
       if (!userId) return;
-
+      // get duos that include the user
       const q = query(collection(db,"duos"), where("users", "array-contains", userId));
       const snap = await getDocs(q);
 
       const list:any = [];
+      // snapshot becomes array of duos
       snap.forEach(d => list.push({id:d.id, ...d.data()}));
 
-      setDuos(list);
+      setDuos(list); 
     }
     loadChats();
   }, []);

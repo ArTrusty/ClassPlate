@@ -15,7 +15,7 @@ interface UserProfile {
   cafeOrder?: string;
   dietaryRestrictions?: string;
   funfact?: string;
-  ratherfun?: string;
+  preferredActivity?: string;
   spotify?: string;
   
 }
@@ -50,9 +50,9 @@ export default function OtherProfile() {
       <Text style={styles.sub}>{user.major} | {user.year}</Text>
       <Text style={styles.bio}>Lunch Vibe: {user.lunchVibe}</Text>
       <Text style={styles.bio}>Cafe Order: {user.cafeOrder}</Text>
-      <Text style={styles.bio}>Social Level: {user.socialLevel}/5</Text>
+      <Text style={styles.bio}>Dietary Restrictions: {user.dietaryRestrictions}</Text>
       <Text style={styles.bio}>Fun Fact: {user.funfact}</Text>
-      <Text style={styles.bio}>Would rather: {user.ratherfun}</Text>
+      <Text style={styles.bio}>Would rather: {user.preferredActivity}</Text>
       <Text style={styles.bio}>Spotify: {user.spotify}</Text>
       
 

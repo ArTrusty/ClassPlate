@@ -28,7 +28,7 @@ export default function Index() {
 
   const router = useRouter();
   const redirectUri = makeRedirectUri({ useProxy: true } as any);
-
+ //secrets for google auth
   const [request, response, promptAsync] = Google.useAuthRequest({
     webClientId: "428729393610-euplovhsfeiajdnkto08ok38ulp05b0b.apps.googleusercontent.com", // created in google cloud
     androidClientId: "428729393610-eh6so526qsjdve3ih7109qq1v5jhaqtc.apps.googleusercontent.com",
@@ -101,9 +101,6 @@ export default function Index() {
     <View style={styles.container}>
       <Text style={styles.title}>ClassPlate</Text>
       <Text style={styles.subtitle}>Community, it's what's with lunch</Text>
-
-      
-
       {/* google Login */}
       <TouchableOpacity style={styles.button} onPress={() => promptAsync()} disabled={!request}>
         <Text style={styles.buttonText}>Sign in with Google</Text>
