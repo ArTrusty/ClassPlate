@@ -4,12 +4,14 @@
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 # Project description
-ClassPlate is a software that connect PNW student over lunch. Students fill out a survey, get matches, send duo requests to turn matches into duos, and meet with their duo in person at either Leo's Market or Pride Cafe. 
+ClassPlate is a software that connects PNW students over lunch. Students fill out a survey, get matches, send duo requests to turn matches into duos, and meet with their duo in person at either Leo's Market or Pride Cafe. 
 
-I built this software using VScode, Git,Github, Firebase, React Native, and Google Cloud. 
+ 
 
 ## Features Implemented
-   Chat
+   Chats
+   Chatroom
+   Database storage
    Survey
    Profile Editing via Survey
    Duo Matching
@@ -32,8 +34,10 @@ I built this software using VScode, Git,Github, Firebase, React Native, and Goog
    Git
 
 ## Installation/setup instructions
-1. Clone Repo
-2. Install dependencies
+1.download Git, VScode, and Node.js
+2. Clone Repo
+3. CD ClassPlate
+4. Install dependencies
 
    ```bash
    npm install
@@ -74,6 +78,7 @@ I built this software using VScode, Git,Github, Firebase, React Native, and Goog
    
 
 ## Credits and Acknowledgments
+   Thank you to Professor Mohsen for his lessons that were crucial for the completion of this project. 
 
 
 
