@@ -16,7 +16,7 @@ export default function Survey() {
   const [lunchVibe, setLunchVibe] = useState("");
   const [socialLevel, setSocialLevel] = useState(3);
   const [cafeOrder, setCafeOrder] = useState("");
-  const [quote, setQuote] = useState("");
+  
   const [similarity, setSimilarity] = useState("");
   const[dietaryRestrictions, setDietaryRestrictions] = useState("");
   const[funfact, setFunfact] = useState("");
@@ -24,7 +24,7 @@ export default function Survey() {
   const[spotify, setSpotify] = useState("");
   //  submit 
 const handleSubmit = async () => {
-  if (!major || !year || !cafeOrder || !quote || !dietaryRestrictions || !funfact || !ratherfun || !spotify || !lunchVibe) {
+  if (!major || !year || !cafeOrder || !dietaryRestrictions || !funfact || !ratherfun || !spotify || !lunchVibe) {
     alert("Please fill out all required fields.");
     return;
   }
@@ -42,7 +42,6 @@ const handleSubmit = async () => {
     lunchVibe,
     socialLevel,
     cafeOrder,
-    quote,
     dietaryRestrictions,
     funfact,
     ratherfun,
@@ -55,7 +54,6 @@ const handleSubmit = async () => {
     major,
     year,
     cafeOrder,
-    quote,
     dietaryRestrictions,
     funfact,
     ratherfun,
@@ -136,7 +134,7 @@ const handleSubmit = async () => {
         value={cafeOrder}
         onChangeText={setCafeOrder}
       />
-      {/* quote */}
+      {/* quote took out quote but saved for later
       <Text style={styles.label}>Favorite Quote</Text>
       <TextInput
         style={styles.input}
@@ -144,6 +142,11 @@ const handleSubmit = async () => {
         value={quote}
         onChangeText={setQuote}
       />
+      
+      
+      
+      */}
+      
       {/* dietary restrictions */}
       <Text style={styles.label}>Dietary Restrictions</Text>
       <Picker
@@ -157,7 +160,7 @@ const handleSubmit = async () => {
           <Picker.Item label="pescatarian" value="Pescatarian" />
         </Picker>
       {/* Fun fact */}
-      <Text style={styles.label}>Major</Text>
+      <Text style={styles.label}>Fun Fact</Text>
       <TextInput 
         style={styles.input}
         placeholder="i have three cats"
