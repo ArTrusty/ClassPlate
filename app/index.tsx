@@ -102,10 +102,7 @@ export default function Index() {
       <Text style={styles.title}>ClassPlate</Text>
       <Text style={styles.subtitle}>Community, it's what's with lunch</Text>
 
-      {/* debugs nav */}
-      <TouchableOpacity onPress={() => router.push("/survey")}>
-        <Text style={{ color:"blue", marginTop:20 }}>Test Go To Survey</Text>
-      </TouchableOpacity>
+      
 
       {/* google Login */}
       <TouchableOpacity style={styles.button} onPress={() => promptAsync()} disabled={!request}>
