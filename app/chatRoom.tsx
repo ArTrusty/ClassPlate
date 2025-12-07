@@ -40,7 +40,7 @@ const [messages, setMessages] = useState<Message[]>([]);
       timestamp:Date.now()
     });
 
-    setText(""); // clear box
+    setText(""); 
   }
 
   return (
