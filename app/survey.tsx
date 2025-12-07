@@ -17,7 +17,7 @@ export default function Survey() {
   const [socialLevel, setSocialLevel] = useState(3);
   const [cafeOrder, setCafeOrder] = useState("");
   
-  const [similarity, setSimilarity] = useState("");
+  
   const[dietaryRestrictions, setDietaryRestrictions] = useState("");
   const[funfact, setFunfact] = useState("");
   const[ratherfun, setRatherfun] = useState("");
