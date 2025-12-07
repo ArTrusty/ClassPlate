@@ -16,8 +16,8 @@ export default function Survey() {
   const [lunchvibe, setLunchvibe] = useState("");
   const [socialLevel, setSocialLevel] = useState(3);
   const [cafeOrder, setCafeOrder] = useState("");
-  const [quote, setQuote] = useState("");
- 
+  
+  
   const[dietaryRestrictions, setDietaryRestrictions] = useState("");
   const[funfact, setFunfact] = useState("");
   const[ratherfun, setRatherfun] = useState("");
@@ -42,7 +42,6 @@ const handleSubmit = async () => {
     lunchvibe,
     socialLevel,
     cafeOrder,
-    quote,
     dietaryRestrictions,
     funfact,
     ratherfun,
@@ -56,11 +55,11 @@ const handleSubmit = async () => {
     year,
     lunchvibe,
     cafeOrder,
-    quote,
     dietaryRestrictions,
     funfact,
     ratherfun,
     spotify,
+    lunchVibe,
     
   }, { merge: true });
 
@@ -113,6 +112,7 @@ const handleSubmit = async () => {
         <Picker.Item label="Chill/go with the flow" value="casual chat" />
 
       </Picker>
+      
 
 
 
@@ -135,7 +135,7 @@ const handleSubmit = async () => {
         value={cafeOrder}
         onChangeText={setCafeOrder}
       />
-      {/* quote */}
+      {/* quote took out quote but saved for later
       <Text style={styles.label}>Favorite Quote</Text>
       <TextInput
         style={styles.input}
@@ -143,6 +143,11 @@ const handleSubmit = async () => {
         value={quote}
         onChangeText={setQuote}
       />
+      
+      
+      
+      */}
+      
       {/* dietary restrictions */}
       <Text style={styles.label}>Dietary Restrictions</Text>
       <Picker
