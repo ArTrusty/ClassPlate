@@ -11,12 +11,12 @@ export async function getMatches(currentUser: any) {
     if (u.email !== currentUser.email) {       // exclude self
       let score = 0;
 
-      if (u.major === currentUser.major) score += 3;
+      if (u.major === currentUser.major) score += 1;
       if (u.year === currentUser.year) score += 2;
-      if (u.lunchVibe === currentUser.lunchVibe) score += 3;
-      if (u.dietaryRestrictions === currentUser.dietaryRestrictions) score += 1;
-      if (u.ratherfun === currentUser.ratherfun) score += 2;
-      
+      if (u.lunchvibe === currentUser.lunchvibe) score += 4;
+      if (u.cafeOrder === currentUser.cafeOrder) score += 0.15;
+      if (u.dietaryRestrictions === currentUser.dietaryRestrictions) score += 1.0;
+      if (u.ratherfun === currentUser.ratherfun) score += 2.0;
 
       const socialDiff = Math.abs(u.socialLevel - currentUser.socialLevel);
       score += (5 - socialDiff); // closer social level = better match

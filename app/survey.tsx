@@ -13,7 +13,7 @@ export default function Survey() {
   
   const [major, setMajor] = useState("");
   const [year, setYear] = useState("");
-  const [lunchVibe, setLunchVibe] = useState("");
+  const [lunchvibe, setLunchvibe] = useState("");
   const [socialLevel, setSocialLevel] = useState(3);
   const [cafeOrder, setCafeOrder] = useState("");
   
@@ -24,7 +24,7 @@ export default function Survey() {
   const[spotify, setSpotify] = useState("");
   //  submit 
 const handleSubmit = async () => {
-  if (!major || !year || !cafeOrder || !dietaryRestrictions || !funfact || !ratherfun || !spotify || !lunchVibe) {
+  if (!major || !year || !lunchvibe || !cafeOrder || !quote || !dietaryRestrictions || !funfact || !ratherfun || !spotify) {
     alert("Please fill out all required fields.");
     return;
   }
@@ -39,7 +39,7 @@ const handleSubmit = async () => {
   await setDoc(doc(db, "surveyResponses", userId), {
     major,
     year,
-    lunchVibe,
+    lunchvibe,
     socialLevel,
     cafeOrder,
     dietaryRestrictions,
@@ -53,6 +53,7 @@ const handleSubmit = async () => {
   await setDoc(doc(db, "users", userId), {
     major,
     year,
+    lunchvibe,
     cafeOrder,
     dietaryRestrictions,
     funfact,
@@ -98,17 +99,17 @@ const handleSubmit = async () => {
         <Picker.Item label="Graduate" value="Graduate" />
       </Picker>
 
-      {/* lunch vibe */}
+      {/* lunch type */}
       <Text style={styles.label}> I prefer... </Text>
       <Picker
-        selectedValue={lunchVibe}
+        selectedValue={lunchvibe}
         style={styles.picker}
-        onValueChange={(item) => setLunchVibe(item)}
+        onValueChange={(item) => setLunchvibe(item)}
       >
-        <Picker.Item label="deep conversations" value="deep conversations" />
-        <Picker.Item label="study lunch " value="study lunch" />
+        <Picker.Item label="Deep conversations" value="deep conversations" />
+        <Picker.Item label="Study lunch " value="study lunch" />
         <Picker.Item label="Networking and career chat" value="networking" />
-        <Picker.Item label="chill/go with the flow" value="casual chat" />
+        <Picker.Item label="Chill/go with the flow" value="casual chat" />
 
       </Picker>
       
@@ -155,15 +156,15 @@ const handleSubmit = async () => {
         onValueChange={(item) => setDietaryRestrictions(item)}
         >
           <Picker.Item label="Vegan" value="Vegan" />
-          <Picker.Item label="vegetarian" value="Vegetarian" />
-          <Picker.Item label="meat eater" value="Meat Eater" />
-          <Picker.Item label="pescatarian" value="Pescatarian" />
+          <Picker.Item label="Vegetarian" value="Vegetarian" />
+          <Picker.Item label="Meat Eater" value="Meat Eater" />
+          <Picker.Item label="Pescatarian" value="Pescatarian" />
         </Picker>
       {/* Fun fact */}
-      <Text style={styles.label}>Fun Fact</Text>
+      <Text style={styles.label}>Fun fact</Text>
       <TextInput 
         style={styles.input}
-        placeholder="i have three cats"
+        placeholder="I have three cats"
         value={funfact}
         onChangeText={setFunfact}
       />
@@ -174,10 +175,10 @@ const handleSubmit = async () => {
         style={styles.input}
         onValueChange={(item) => setRatherfun(item)}
         >
-          <Picker.Item label="shopping" value="Shopping" />
-          <Picker.Item label="baking" value="Baking" />
-          <Picker.Item label="traveling" value="Traveling" />
-          <Picker.Item label="quiet reading alongside a friend" value="Reading" />
+          <Picker.Item label="Shopping" value="Shopping" />
+          <Picker.Item label="Baking" value="Baking" />
+          <Picker.Item label="Traveling" value="Traveling" />
+          <Picker.Item label="Quiet reading with a friend" value="Reading" />
         </Picker>
       <Text style={styles.label}>Spotify Playlist Link</Text>
       <TextInput 
