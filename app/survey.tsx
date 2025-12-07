@@ -13,7 +13,7 @@ export default function Survey() {
   
   const [major, setMajor] = useState("");
   const [year, setYear] = useState("");
-  const [preference, setPreference] = useState("");
+  const [lunchvibe, setLunchvibe] = useState("");
   const [socialLevel, setSocialLevel] = useState(3);
   const [cafeOrder, setCafeOrder] = useState("");
   const [quote, setQuote] = useState("");
@@ -24,7 +24,7 @@ export default function Survey() {
   const[spotify, setSpotify] = useState("");
   //  submit 
 const handleSubmit = async () => {
-  if (!major || !year || !preference || !cafeOrder || !quote || !dietaryRestrictions || !funfact || !ratherfun || !spotify) {
+  if (!major || !year || !lunchvibe || !cafeOrder || !quote || !dietaryRestrictions || !funfact || !ratherfun || !spotify) {
     alert("Please fill out all required fields.");
     return;
   }
@@ -39,7 +39,7 @@ const handleSubmit = async () => {
   await setDoc(doc(db, "surveyResponses", userId), {
     major,
     year,
-    preference,
+    lunchvibe,
     socialLevel,
     cafeOrder,
     quote,
@@ -54,7 +54,7 @@ const handleSubmit = async () => {
   await setDoc(doc(db, "users", userId), {
     major,
     year,
-    preference,
+    lunchvibe,
     cafeOrder,
     quote,
     dietaryRestrictions,
@@ -100,12 +100,12 @@ const handleSubmit = async () => {
         <Picker.Item label="Graduate" value="Graduate" />
       </Picker>
 
-      {/* preference */}
+      {/* lunch type */}
       <Text style={styles.label}> I prefer... </Text>
       <Picker
-        selectedValue={preference}
+        selectedValue={lunchvibe}
         style={styles.picker}
-        onValueChange={(item) => setPreference(item)}
+        onValueChange={(item) => setLunchvibe(item)}
       >
         <Picker.Item label="deep conversations" value="deep conversations" />
         <Picker.Item label="study lunch " value="study lunch" />
