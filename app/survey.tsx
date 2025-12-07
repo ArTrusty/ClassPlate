@@ -13,18 +13,18 @@ export default function Survey() {
   
   const [major, setMajor] = useState("");
   const [year, setYear] = useState("");
-  const [preference, setPreference] = useState("");
+  const [lunchVibe, setLunchVibe] = useState("");
   const [socialLevel, setSocialLevel] = useState(3);
   const [cafeOrder, setCafeOrder] = useState("");
   const [quote, setQuote] = useState("");
- 
+  const [similarity, setSimilarity] = useState("");
   const[dietaryRestrictions, setDietaryRestrictions] = useState("");
   const[funfact, setFunfact] = useState("");
   const[ratherfun, setRatherfun] = useState("");
   const[spotify, setSpotify] = useState("");
   //  submit 
 const handleSubmit = async () => {
-  if (!major || !year || !preference || !cafeOrder || !quote || !dietaryRestrictions || !funfact || !ratherfun || !spotify) {
+  if (!major || !year || !cafeOrder || !quote || !dietaryRestrictions || !funfact || !ratherfun || !spotify || !lunchVibe) {
     alert("Please fill out all required fields.");
     return;
   }
@@ -39,7 +39,7 @@ const handleSubmit = async () => {
   await setDoc(doc(db, "surveyResponses", userId), {
     major,
     year,
-    preference,
+    lunchVibe,
     socialLevel,
     cafeOrder,
     quote,
@@ -54,13 +54,13 @@ const handleSubmit = async () => {
   await setDoc(doc(db, "users", userId), {
     major,
     year,
-    preference,
     cafeOrder,
     quote,
     dietaryRestrictions,
     funfact,
     ratherfun,
     spotify,
+    lunchVibe,
     
   }, { merge: true });
 
@@ -100,12 +100,12 @@ const handleSubmit = async () => {
         <Picker.Item label="Graduate" value="Graduate" />
       </Picker>
 
-      {/* preference */}
+      {/* lunch vibe */}
       <Text style={styles.label}> I prefer... </Text>
       <Picker
-        selectedValue={preference}
+        selectedValue={lunchVibe}
         style={styles.picker}
-        onValueChange={(item) => setPreference(item)}
+        onValueChange={(item) => setLunchVibe(item)}
       >
         <Picker.Item label="deep conversations" value="deep conversations" />
         <Picker.Item label="study lunch " value="study lunch" />
@@ -113,6 +113,7 @@ const handleSubmit = async () => {
         <Picker.Item label="chill/go with the flow" value="casual chat" />
 
       </Picker>
+      
 
 
 

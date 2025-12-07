@@ -13,7 +13,11 @@ export async function getMatches(currentUser: any) {
 
       if (u.major === currentUser.major) score += 3;
       if (u.year === currentUser.year) score += 2;
-      if (u.preference === currentUser.preference) score += 2;
+      if (u.lunchVibe === currentUser.lunchVibe) score += 3;
+      if (u.cafeOrder === currentUser.cafeOrder) score += .0001; // basically nothing can be told from a cafe order but i thought i would add a small boost
+      if (u.dietaryRestrictions === currentUser.dietaryRestrictions) score += 1;
+      if (u.ratherfun === currentUser.ratherfun) score += 2;
+      
 
       const socialDiff = Math.abs(u.socialLevel - currentUser.socialLevel);
       score += (5 - socialDiff); // closer social level = better match
