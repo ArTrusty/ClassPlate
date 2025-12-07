@@ -2,10 +2,9 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useRouter } from "expo-router";
 import { addDoc, collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { db } from "./firebaseConfig";
 import { getMatches } from "./utils/matchUsers";
-
 export default function Home() {
   const router = useRouter();
   const [user, setUser] = useState<any>(null);
@@ -66,7 +65,7 @@ export default function Home() {
     <ScrollView contentContainerStyle={styles.container}>
       
       <Text style={styles.header}>
-        Welcome back, {user?.name?.split(" ")[0]} 👋
+         Are you duo ready, {user?.name?.split(" ")[0]} ?
       </Text>
 
       {/* Updates */}
@@ -86,30 +85,38 @@ export default function Home() {
         <Text style={styles.title}>Suggested Duos</Text>
 
         {suggestions.length === 0 ? (
-          <Text style={styles.item}>No matches yet — update survey to get matched.</Text>
+          <Text style={styles.item}>No matches yet. Update survey to get matched.</Text>
         ) : (
           suggestions.map(p => (
             <View key={p.id} style={styles.suggestCard}>
-              <Text style={styles.suggestName}>{p.name}</Text>
-              <Text style={styles.suggestSub}>{p.major} • {p.year}</Text>
-              <Text style={styles.suggestScore}>Match Score: {p.score}</Text>
+              {p.picture ? (
+                <Image source={{ uri: p.picture }} style={styles.avatar} />
+              ) : (
+                <View style={[styles.avatar, { backgroundColor: "#ccc" }]} />
+              )}
 
-              <TouchableOpacity onPress={() => router.push(`/profile/${p.id}`)}>
-                <Text style={styles.profileLink}>View Profile →</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={[styles.button, { marginTop: 8 }]}
-                onPress={() => {
-                  if (!requested.includes(p.id)) {
-                    sendDuoRequest(p.id);
-                    setRequested(prev => [...prev, p.id]);
-                  } else {
-                    alert('Request already sent');
-                  }
-                }}
-              >
-                <Text style={{ color: '#fff', fontWeight: 'bold' }}>{requested.includes(p.id) ? 'Request Sent' : 'Request Duo'}</Text>
-              </TouchableOpacity>
+              <View style={styles.suggestContent}>
+                <Text style={styles.suggestName}>{p.name}</Text>
+                <Text style={styles.suggestSub}>{p.major} • {p.year}</Text>
+                <Text style={styles.suggestScore}>Match Score: {p.score}</Text>
+
+                <TouchableOpacity onPress={() => router.push(`/profile/${p.id}`)}>
+                  <Text style={styles.profileLink}>View Profile →</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={[styles.button, { marginTop: 8 }]}
+                  onPress={() => {
+                    if (!requested.includes(p.id)) {
+                      sendDuoRequest(p.id);
+                      setRequested(prev => [...prev, p.id]);
+                    } else {
+                      alert('Request already sent');
+                    }
+                  }}
+                >
+                  <Text style={{ color: '#fff', fontWeight: 'bold' }}>{requested.includes(p.id) ? 'Request Sent' : 'Request Duo'}</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           ))
         )}
@@ -120,7 +127,7 @@ export default function Home() {
         <Text style={styles.title}>Your Duos</Text>
 
         {duos.length === 0 ? (
-          <Text style={styles.item}>No duos yet — accept a match!</Text>
+          <Text style={styles.item}>No duos yet. Don't be solo, accept a match!</Text>
         ) : (
           duos.map(d => (
             <View key={d.id} style={styles.suggestCard}>
@@ -153,6 +160,9 @@ const styles = StyleSheet.create({
   suggestScore: { color: "#195c42", marginTop: 5, fontWeight:"600"},
   profileLink: { color:"#195c42", marginTop:5, fontWeight:"700" },
   button: { backgroundColor: "#195c42", padding: 10, borderRadius: 8, alignItems: "center", marginTop: 6 }
+  ,
+  avatar: { width: 64, height: 64, borderRadius: 32, marginRight: 12 },
+  suggestContent: { flex: 1 }
 });
 
 
