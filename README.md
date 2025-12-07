@@ -4,8 +4,9 @@
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 # Project description
+ClassPlate is a software that connect PNW student over lunch. Students fill out a survey, get matches, send duo requests to turn matches into duos, and meet with their duo in person at either Leo's Market or Pride Cafe. 
 
-
+I built this software using VScode, Git,Github, Firebase, React Native, and Google Cloud. 
 
 ## Features Implemented
    Chat
@@ -16,7 +17,7 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    Viewing Other User's Profiles
    Sending Duo Requests
    Home Page
-   Profile Page
+   Profiles
    Profile Photo Display
 
 ## Technology Stack
@@ -51,7 +52,20 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    note: Expo Go will only work if your phone and computer are connected via the same wifi. You can do npx expo start --tunnel if you cannot put both devices on the same wifi. Please note that this generates a new url everytime. Google login will no longer work for two reasons: 1. The url that is generated is not listed as an authorized redirect urI on Google Cloud and 2. Google Cloud does not accept urls that do not start with https.
 
    3. If you log onto the local host url with your laptop, right click on the website and press inspect. Press toggle device emulation at the top to visualize what the app looks like on a phone. 
+
+   4. You also can not log in unless you are added as a test user on Google Cloud Console
 ## Screenshots
+   ### Home Page
+   <img src="assets/screenshots/home page.png" width="300">
+
+### Duo Page
+   <img src="assets/screenshots/duo page.png" width="300">
+
+### Chat Page
+<img src="assets/screenshots/chat page.png" width="300">
+
+### Chatroom
+<img src="assets/screenshots/chatroom.png" width="300">
 
 
 ## Known Issues/limitations
