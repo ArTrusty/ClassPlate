@@ -9,18 +9,20 @@ ClassPlate is a software that connects PNW students over lunch. Students fill ou
  
 
 ## Features Implemented
-   Chats
-   Chatroom
-   Database storage
-   Survey
-   Profile Editing via Survey
-   Duo Matching
-   Requesting Duos
-   Viewing Other User's Profiles
-   Sending Duo Requests
-   Home Page
-   Profiles
-   Profile Photo Display
+   1.Chat
+   2.Chatroom
+   3. Database storage
+   4. Survey
+   5. Profile Editing via Survey
+   6. Duo Matching
+   7. Requesting Duos
+   8. Viewing Other User's Profiles
+   9. Sending Duo Requests
+   10. Home Page
+   11. Profiles
+   12. Profile Photo Display
+   13. View duos/Duos page
+   
 
 ## Technology Stack
    React Native
