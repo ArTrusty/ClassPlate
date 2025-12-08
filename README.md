@@ -80,7 +80,7 @@ ClassPlate is a software that connects PNW students over lunch. Students fill ou
    
 
 ## Credits and Acknowledgments
-   Thank you to Professor Mohsen for his lessons that were crucial for the completion of this project. 
+   Thank you to Professor Mohsen Saffari for his lessons that were crucial for the completion of this project. 
 
 
 
