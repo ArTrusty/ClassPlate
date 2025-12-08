@@ -1,6 +1,6 @@
 
 # Welcome to ClassPlate
-
+github link: https://github.com/ArTrusty/ClassPlate
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
 # Project description
@@ -75,12 +75,12 @@ ClassPlate is a software that connects PNW students over lunch. Students fill ou
 
 
 ## Known Issues/limitations
-   1. The app is not deployed which means it can only run on a local machine
-   2. An ios web client was not created so this app will not run on an ios phone
+   1. The app is not deployed, which means it can only run on a local machine
+   2. An ios web client was not created, so this app will not run on an iOS phone
    
 
 ## Credits and Acknowledgments
-   Thank you to Professor Mohsen Saffari for his lessons that were crucial for the completion of this project. 
+    Thank you to Professor Mohsen Saffari for his invaluable lessons, which were crucial to the completion of this project. 
 
 
 
